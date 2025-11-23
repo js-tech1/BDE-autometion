@@ -3,16 +3,41 @@ services:
     name: bde-automation
     runtime: python
     plan: free
-    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    region: oregon
+    buildCommand: |
+      pip install --upgrade pip setuptools wheel
+      pip install --only-binary=:all: -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
-      - key: PIP_NO_BINARY
-        value: ":none:"
-      - key: WATSON_API_KEY
+      - key: PIP_ONLY_BINARY
+        value: ":all:"
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: IBM_WATSON_API_KEY
         sync: false
-      - key: GMAIL_PASSWORD
+      - key: IBM_WATSON_URL
+        sync: false
+      - key: IBM_WATSON_PROJECT_ID
+        sync: false
+      - key: WATSONX_API_KEY
+        sync: false
+      - key: WATSONX_PROJECT_ID
+        sync: false
+      - key: WATSONX_URL
+        sync: false
+      - key: SMTP_USERNAME
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: SENDER_EMAIL
+        sync: false
+      - key: SENDER_NAME
+        sync: false
+      - key: SECRET_KEY
         sync: false
       - key: DATABASE_URL
         value: sqlite:///./bde_automation.db
+      - key: DEBUG_MODE
+        value: "False"
