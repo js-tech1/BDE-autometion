@@ -2,12 +2,17 @@ services:
   - type: web
     name: bde-automation
     runtime: python
-    buildCommand: pip install -r requirements.txt
+    plan: free
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9.0
+        value: 3.11.0
+      - key: PIP_NO_BINARY
+        value: ":none:"
       - key: WATSON_API_KEY
         sync: false
       - key: GMAIL_PASSWORD
         sync: false
+      - key: DATABASE_URL
+        value: sqlite:///./bde_automation.db
