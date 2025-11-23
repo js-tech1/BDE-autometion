@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: bde-automation
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.0
+      - key: WATSON_API_KEY
+        sync: false
+      - key: GMAIL_PASSWORD
+        sync: false

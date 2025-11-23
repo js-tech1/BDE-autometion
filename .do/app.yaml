@@ -1,0 +1,18 @@
+name: bde-automation
+services:
+  - name: web
+    environment_slug: python
+    github:
+      branch: main
+      deploy_on_push: true
+    run_command: uvicorn main:app --host 0.0.0.0 --port 8080
+    http_port: 8080
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    envs:
+      - key: WATSON_API_KEY
+        scope: RUN_TIME
+        type: SECRET
+      - key: GMAIL_PASSWORD
+        scope: RUN_TIME
+        type: SECRET

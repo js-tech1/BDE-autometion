@@ -1,0 +1,6 @@
+company_name,contact_name,email,phone,industry,company_size,revenue,location
+Acme Corporation,Jane Doe,jane.doe@acme.com,+1-555-0201,Technology,100-500 employees,$50M-$100M,"Austin, TX"
+Beta Industries,Bob Wilson,bob.wilson@beta.com,+1-555-0202,Manufacturing,500-1000 employees,$100M-$500M,"Detroit, MI"
+Gamma Solutions,Alice Chen,alice.chen@gamma.com,+1-555-0203,Consulting,50-200 employees,$20M-$50M,"Seattle, WA"
+Delta Enterprises,Mike Rodriguez,mike.r@delta.com,+1-555-0204,Retail,200-500 employees,$80M-$200M,"Los Angeles, CA"
+Epsilon Tech,Sarah Kim,sarah.kim@epsilon.com,+1-555-0205,Technology,50-100 employees,$10M-$50M,"San Jose, CA"
