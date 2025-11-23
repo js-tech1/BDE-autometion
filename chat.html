@@ -312,7 +312,12 @@ What would you like to do?
     </div>
     
     <script>
-        const API_URL = 'http://localhost:8000';
+        // Dynamically detect API URL based on environment
+        const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+            ? 'http://localhost:8000'  // Local development
+            : window.location.origin;   // Production (Render)
+        
+        console.log('API URL:', API_URL);  // Debug log
         
         function sendExample(text) {
             document.getElementById('messageInput').value = text;
